@@ -5,6 +5,14 @@ interface Props {
 }
 
 function Checklist({ items }: Props) {
+  if (items.length > 0) {
+    return <PopulatedCheckList items={items} />
+  } else {
+    return <EmptyCheckList />
+  }
+}
+
+function PopulatedCheckList({ items }: Props) {
   const listItems = items.map(item => {
     return (
       <li
@@ -21,6 +29,10 @@ function Checklist({ items }: Props) {
       {listItems}
     </ol>
   )
+}
+
+function EmptyCheckList() {
+  return <p>Nothing in your checklist yet</p>
 }
 
 export default Checklist;

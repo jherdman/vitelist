@@ -1,5 +1,4 @@
-import { useState, useSyncExternalStore } from 'react';
-import './App.css'
+import { useState } from 'react';
 import Checklist from './Checklist'
 import CheckListItemForm from './CheckListItemForm';
 
@@ -23,8 +22,15 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="max-w-xl mx-auto py-8">
+      <h1
+        className="text-2xl font-sans font-bold text-slate-800 pb-4"
+      >
+        My checklist
+      </h1>
+
       <Checklist items={items} />
+
       <CheckListItemForm id={nextId} onSubmit={publishItem} />
     </div>
   )
